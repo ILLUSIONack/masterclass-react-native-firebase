@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, FlatList, TextInput, ScrollView } from 'react-native';
+import {StyleSheet, Text, View, Button, FlatList, TextInput, ScrollView, SafeAreaView} from 'react-native';
 import { FIREBASE_DB } from './firebaseConfig'
 import {addDoc, collection, doc, getDocs } from 'firebase/firestore'
 import React, { useState, useEffect } from 'react';
@@ -30,7 +30,7 @@ export default function App() {
   }, [tasks]);
 
   const addTodo = async () => {
-    // TODO: - Opdracht 2 - Implementing adding todo document to todo's collections. Pass the title as text 
+    // TODO: - Opdracht 2 - Implementing adding todo document to todo's collections. Pass the title as text
     // Use addDoc, collection
     // Test this checking firebase to see if the todo is pushed
 
@@ -38,25 +38,27 @@ export default function App() {
   }
 
   return (
-    // TODO: - Opdracht 3 - Implement scrolling for entire view
-    <View style={styles.container}>
-      <Text>TODO Application</Text>
-      <StatusBar style="auto" />
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
-      />
-      <Button onPress={addTodo} title="Add TODO"/>
-      {/* <FlatList
-      data={tasks}
-      renderItem={({ item }) => (
-        <View style={{ height: 50, flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text>Name: {item.title}</Text>
+      <SafeAreaView>
+        // TODO: - Opdracht 3 - Implement scrolling for entire view
+        <View style={styles.container}>
+          <Text>TODO Application</Text>
+          <StatusBar style="auto" />
+          <TextInput
+            style={styles.input}
+            onChangeText={onChangeText}
+            value={text}
+          />
+          <Button onPress={addTodo} title="Add TODO"/>
+          {/* <FlatList
+          data={tasks}
+          renderItem={({ item }) => (
+            <View style={{ height: 50, flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+              <Text>Name: {item.title}</Text>
+            </View>
+          )}
+        /> */}
         </View>
-      )}
-    /> */}
-    </View>
+      </SafeAreaView>
   );
 }
 
