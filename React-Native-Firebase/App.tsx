@@ -30,12 +30,15 @@ export default function App() {
   }, [tasks]);
 
   const addTodo = async () => {
-    const doc = await addDoc(collection(FIREBASE_DB, "todos"), {title: text, description: "Test description"})
-    console.log("Created Todo with id", doc.id)
+    // TODO: - Opdracht 2 - Implementing adding todo document to todo's collections. Pass the title as text 
+    // Use addDoc, collection
+    // Test this checking firebase to see if the todo is pushed
+
+    // console.log("Created Todo with id", doc.id)
   }
 
   return (
-    <ScrollView>
+    // TODO: - Opdracht 3 - Implement scrolling for entire view
     <View style={styles.container}>
       <Text>TODO Application</Text>
       <StatusBar style="auto" />
@@ -45,17 +48,15 @@ export default function App() {
         value={text}
       />
       <Button onPress={addTodo} title="Add TODO"/>
-      <FlatList
+      {/* <FlatList
       data={tasks}
       renderItem={({ item }) => (
         <View style={{ height: 50, flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <Text>Name: {item.title}</Text>
         </View>
       )}
-    />
+    /> */}
     </View>
-    </ScrollView>
-
   );
 }
 
