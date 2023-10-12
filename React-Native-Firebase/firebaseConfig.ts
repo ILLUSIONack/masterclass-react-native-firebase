@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
-// TODO: - Opdracht 1 - Add Firebase Conig here
+// TODO: - Opdracht 1 - Add Firebase Config here
 };
 
 // Initialize Firebase
